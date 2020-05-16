@@ -11,8 +11,14 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 5f;
 
         Health target;
+        Mover mover;
 
         float timeSinceLastAttack = Mathf.Infinity;
+
+        private void Start()
+        {
+            mover = GetComponent<Mover>();
+        }
 
         private void Update()
         {
@@ -22,7 +28,6 @@ namespace RPG.Combat
             if (target.IsDead()) return;
 
             bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
-            Mover mover = GetComponent<Mover>();
             if (!isInRange)
             {
                 mover.MoveTo(target.transform.position, 1f);
@@ -77,6 +82,7 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
+            mover.Cancel();
         }
 
         private void StopAttack()
