@@ -15,6 +15,7 @@ namespace RPG.SceneManagement
 
         public IEnumerator FadeOut(float totalDuration)
         {
+            canvasGroup.alpha = 0f;
             while (canvasGroup.alpha < 1f)
             {
                 canvasGroup.alpha = Mathf.Min(canvasGroup.alpha + Time.deltaTime / totalDuration, 1f);
@@ -24,6 +25,7 @@ namespace RPG.SceneManagement
 
         public IEnumerator FadeIn(float totalDuration)
         {
+            canvasGroup.alpha = 1f;
             while (canvasGroup.alpha > 0f)
             {
                 canvasGroup.alpha = Mathf.Max(canvasGroup.alpha - Time.deltaTime / totalDuration, 0f);
