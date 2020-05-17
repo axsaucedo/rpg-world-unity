@@ -123,15 +123,19 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1954485541, guid: af76cad92d6b16a4a9db1855166f1164, type: 3}
+      propertyPath: destination
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6247481475196534529, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: Portal Start
       objectReference: {fileID: 0}
     - target: {fileID: 6689837288042238673, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.04
+      value: 21.4
       objectReference: {fileID: 0}
     - target: {fileID: 6689837288042238673, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
@@ -141,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 6689837288042238673, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.74
+      value: 46.47
       objectReference: {fileID: 0}
     - target: {fileID: 6689837288042238673, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
@@ -275,10 +279,14 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1954485541, guid: af76cad92d6b16a4a9db1855166f1164, type: 3}
+      propertyPath: destination
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6247481475196534529, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
       propertyPath: m_Name
-      value: Portal (1)
+      value: Portal End
       objectReference: {fileID: 0}
     - target: {fileID: 6689837288042238673, guid: af76cad92d6b16a4a9db1855166f1164,
         type: 3}
