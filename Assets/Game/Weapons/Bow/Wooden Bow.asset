@@ -18,3 +18,5 @@ MonoBehaviour:
   weaponPrefab: {fileID: 2725378732431573202, guid: 7cabeae7f531d0341bbfec268ab4dad8,
     type: 3}
   isRightWield: 0
+  projectile: {fileID: 3518057668973714211, guid: 853b33655b37cd344b7e64696ea4e28c,
+    type: 3}

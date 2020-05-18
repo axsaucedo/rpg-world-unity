@@ -1,29 +1,52 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace RPG.Combat
 {
-    [SerializeField] Transform target = null;
-    [SerializeField] float speed = 1;
-
-    private void Update()
+    public class Projectile : MonoBehaviour
     {
-        if (target == null) return;
+        [SerializeField] float speed = 1;
 
-        transform.LookAt(GetAimLocation());
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-    }
+        Health target = null;
+        float damage = 0;
 
-    private Vector3 GetAimLocation()
-    {
-        // Arrow shoots at feet so this ensures arrow aims at middle of capsule collider
-        CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
-        if (targetCapsule == null)
+        private void Update()
         {
-            return target.position;
+            if (target == null) return;
+
+            transform.LookAt(GetAimLocation());
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
-        return target.position + (Vector3.up * targetCapsule.height / 2);
+
+        public void SetTarget(Health target, float damage)
+        {
+            this.target = target;
+            this.damage = damage;
+        }
+
+        private Vector3 GetAimLocation()
+        {
+            // Arrow shoots at feet so this ensures arrow aims at middle of capsule collider
+            CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
+            if (targetCapsule == null)
+            {
+                return target.transform.position;
+            }
+            return target.transform.position + (Vector3.up * targetCapsule.height / 2);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Entering");
+            if (other.GetComponent<Health>() != target)
+            {
+                return;
+            }
+            target.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

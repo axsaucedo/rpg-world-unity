@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022351977}
-  m_LocalRotation: {x: 0.19553219, y: 0.20806241, z: -0.042491782, w: 0.9574297}
+  m_LocalRotation: {x: 0.1955322, y: 0.20806238, z: -0.04249178, w: 0.9574297}
   m_LocalPosition: {x: -3.8077278, y: -6.7095594, z: -48.55738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1269,6 +1269,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8691954302288844590}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1335160123 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4589258195368861442, guid: 1b8d01edbae75164ab690f5706278476,
+    type: 3}
+  m_PrefabInstance: {fileID: 8691954302288844590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1335160134
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1420,6 +1426,12 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: 35de6497-9aed-4a93-9a18-687f955ff5db
       objectReference: {fileID: 0}
+    - target: {fileID: 2639831692743449460, guid: 7de0bd4f4f6cad14f9e1f05dfcf3e539,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2098d749af8aad744bcf5196c8cd1b9e,
+        type: 2}
     - target: {fileID: 4897998847856961073, guid: 7de0bd4f4f6cad14f9e1f05dfcf3e539,
         type: 3}
       propertyPath: m_Name
@@ -2116,11 +2128,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1076340466729225172, guid: 853b33655b37cd344b7e64696ea4e28c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1587545912510015171, guid: 853b33655b37cd344b7e64696ea4e28c,
         type: 3}
       propertyPath: m_Name
       value: ArrowProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 3518057668973714211, guid: 853b33655b37cd344b7e64696ea4e28c,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1335160123}
     - target: {fileID: 5298583415271072868, guid: 853b33655b37cd344b7e64696ea4e28c,
         type: 3}
       propertyPath: m_LocalPosition.x
