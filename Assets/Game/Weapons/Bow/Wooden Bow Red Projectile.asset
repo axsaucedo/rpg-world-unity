@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c13034bcf15c93a4f8681e9cdd9feaf9, type: 3}
-  m_Name: Wooden Bow
+  m_Name: Wooden Bow Red Projectile
   m_EditorClassIdentifier: 
-  weaponRange: 10
+  weaponRange: 20
   weaponDamage: 8
   animatorOverride: {fileID: 22100000, guid: 90b0d1d23f7127d41bf44ce10ee2ec62, type: 2}
   weaponPrefab: {fileID: 2725378732431573202, guid: 7cabeae7f531d0341bbfec268ab4dad8,
     type: 3}
   isRightWield: 0
-  projectile: {fileID: 3518057668973714211, guid: 853b33655b37cd344b7e64696ea4e28c,
+  projectile: {fileID: 1634240871706788960, guid: beb712306f5b7e44d8d88c857d505a6a,
     type: 3}
