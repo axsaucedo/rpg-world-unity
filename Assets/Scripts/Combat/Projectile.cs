@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] float speed = 1;
         [SerializeField] bool isHoming = true;
         [SerializeField] GameObject hitEffect = null;
+        [SerializeField] float maxLifetTime = 10f;
 
         Health target = null;
         float damage = 0;
@@ -35,6 +36,8 @@ namespace RPG.Combat
         {
             this.target = target;
             this.damage = damage;
+
+            Destroy(gameObject, maxLifetTime);
         }
 
         private Vector3 GetAimLocation()
@@ -53,11 +56,13 @@ namespace RPG.Combat
             if (target.IsDead()) return;
             if (other.GetComponent<Health>() != target) return;
 
+            target.TakeDamage(damage);
+
             if (hitEffect != null)
             {
                 Instantiate(hitEffect, GetAimLocation(), transform.rotation);
             }
-            target.TakeDamage(damage);
+
             Destroy(gameObject);
         }
     }
