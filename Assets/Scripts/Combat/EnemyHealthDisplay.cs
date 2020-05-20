@@ -19,7 +19,7 @@ namespace RPG.Combat
         private void Update()
         {
             Health target = fighter.GetTarget();
-            if (target != null)
+            if (target == null)
             {
                 GetComponent<Text>().text = String.Format("N/A");
             }
