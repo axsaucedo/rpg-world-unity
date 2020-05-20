@@ -151,6 +151,16 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5223043928536860537, guid: 4273b7d2a77df994894e9c165cddc888,
+        type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223043928536860537, guid: 4273b7d2a77df994894e9c165cddc888,
+        type: 3}
+      propertyPath: startingLevel
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7385093924073532919, guid: 4273b7d2a77df994894e9c165cddc888,
         type: 3}
       propertyPath: m_Name
