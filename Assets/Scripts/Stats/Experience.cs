@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
+using System;
 
-namespace RPG.Resources
+namespace RPG.Stats
 {
     public class Experience : MonoBehaviour, ISaveable
     {
@@ -22,6 +23,11 @@ namespace RPG.Resources
         public void RestoreState(object state)
         {
             experiencePoints = (float) state;
+        }
+
+        public float GetPoints()
+        {
+            return experiencePoints;
         }
     }
 }
