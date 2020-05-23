@@ -13,7 +13,7 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath = null;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 1f;
-        [Range(0,1)]
+        [Range(0, 1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
 
         Fighter fighter;
@@ -26,13 +26,16 @@ namespace RPG.Control
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
-        private void Start()
+        private void Awake()
         {
             player = GameObject.FindWithTag("Player");
             health = GetComponent<Health>();
             fighter = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
+        }
 
+        private void Start()
+        {
             guardPosition = transform.position;
         }
 

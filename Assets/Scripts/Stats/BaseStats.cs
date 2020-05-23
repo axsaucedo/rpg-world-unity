@@ -17,14 +17,32 @@ namespace RPG.Stats
         int currentLevel = 0;
 
         public event Action onLevelUp;
+        Experience experience;
+
+        private void Awake()
+        {
+            experience = GetComponent<Experience>();
+        }
 
         private void Start()
         {
             currentLevel = CalculateLevel();
-            Experience experience = GetComponent<Experience>();
+        }
+
+        // Always runs after Awake of the same method but before Start()
+        private void OnEnable()
+        {
             if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
+            }
+        }
+
+        private void OnDisable() 
+        {
+            if (experience != null)
+            {
+                experience.onExperienceGained -= UpdateLevel;
             }
         }
 
@@ -83,7 +101,7 @@ namespace RPG.Stats
         private float GetTotalPercentageModifier(Stat stat)
         {
             if (!shouldUseModifiers) return 0f;
-            
+
             float totalAdditive = 0f;
 
             foreach (IModifierProvider provider in GetComponents<IModifierProvider>())

@@ -21,7 +21,7 @@ namespace RPG.Movement
             public SerializableVector3 rotation;
         }
 
-        private void Start()
+        private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
