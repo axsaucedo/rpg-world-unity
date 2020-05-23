@@ -8,7 +8,7 @@ namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        float healthPoints = 100f;
+        float healthPoints = -1f;
 
         bool isDead = false;
 
@@ -64,7 +64,7 @@ namespace RPG.Resources
 
         public void RestoreState(object state)
         {
-            healthPoints = (float)state;
+            healthPoints = (float) state;
 
             if (healthPoints == 0)
             {
