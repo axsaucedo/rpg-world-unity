@@ -34,7 +34,7 @@ namespace RPG.SceneManagement
             {
                 Save();
             }
-            else if (Input.GetKeyDown(KeyCode.Delete))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 Delete();
             }
