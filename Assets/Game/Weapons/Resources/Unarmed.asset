@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponRange: 2
   weaponDamage: 3
+  weaponPercentageBonus: 0
   animatorOverride: {fileID: 22100000, guid: 372ff169328a810469e3c8207bc07b07, type: 2}
   weaponPrefab: {fileID: 0}
   isRightWield: 1
