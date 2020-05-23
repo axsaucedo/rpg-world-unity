@@ -9,14 +9,18 @@ namespace RPG.Resources
     public class Health : MonoBehaviour, ISaveable
     {
         float healthPoints = -1f;
-
         bool isDead = false;
+        BaseStats baseStats;
 
         private void Start()
         {
+            baseStats = GetComponent<BaseStats>();
+
+            baseStats.onLevelUp += RegenerateHealth;
+            
             if (healthPoints < 0)
             {
-                healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+                healthPoints = baseStats.GetStat(Stat.Health);
             }
         }
 
@@ -55,6 +59,11 @@ namespace RPG.Resources
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        private void RegenerateHealth()
+        {
+            healthPoints = baseStats.GetStat(Stat.Health);
         }
 
         public object CaptureState()
