@@ -18,7 +18,7 @@ namespace RPG.Resources
 
             baseStats.onLevelUp += RegenerateHealth;
             
-            if (healthPoints < 0)
+            if (healthPoints < 1)
             {
                 healthPoints = baseStats.GetStat(Stat.Health);
             }
