@@ -1,4 +1,5 @@
 ﻿using System;
+using GameDevTV.Utils;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
@@ -8,21 +9,19 @@ namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        float healthPoints = -1f;
+        LazyValue<float> healthPoints;
         bool isDead = false;
         BaseStats baseStats;
 
         private void Awake()
         {
             baseStats = GetComponent<BaseStats>();
+            healthPoints = new LazyValue<float>(() => { return baseStats.GetStat(Stat.Health); });
         }
 
         private void Start()
         {
-            if (healthPoints < 1)
-            {
-                healthPoints = baseStats.GetStat(Stat.Health);
-            }
+            healthPoints.ForceInit();
         }
 
         private void OnEnable()
@@ -43,8 +42,8 @@ namespace RPG.Resources
         public void TakeDamage(GameObject instigator, float damage)
         {
             print(gameObject.name + " damage: " + damage);
-            healthPoints = Mathf.Max(healthPoints - damage, 0);
-            if (healthPoints == 0)
+            healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
+            if (healthPoints.value == 0)
             {
                 Die();
                 AwardExperience(instigator);
@@ -61,7 +60,7 @@ namespace RPG.Resources
 
         public float GetHealthPoints()
         {
-            return healthPoints;
+            return healthPoints.value;
         }
 
         public float GetMaxHealthPoints()
@@ -71,7 +70,7 @@ namespace RPG.Resources
 
         public float GetPercentage()
         {
-            return 100 * healthPoints / baseStats.GetStat(Stat.Health);
+            return 100 * healthPoints.value / baseStats.GetStat(Stat.Health);
         }
 
         private void Die()
@@ -85,19 +84,19 @@ namespace RPG.Resources
 
         private void RegenerateHealth()
         {
-            healthPoints = baseStats.GetStat(Stat.Health);
+            healthPoints.value = baseStats.GetStat(Stat.Health);
         }
 
         public object CaptureState()
         {
-            return healthPoints;
+            return healthPoints.value;
         }
 
         public void RestoreState(object state)
         {
-            healthPoints = (float)state;
+            healthPoints.value = (float)state;
 
-            if (healthPoints == 0)
+            if (healthPoints.value == 0)
             {
                 Die();
             }
